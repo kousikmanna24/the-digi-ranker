@@ -370,145 +370,93 @@
       .metric strong{font-size:34px}
     }
 
- /* =========================================
-   BOTTOM-RIGHT RAINBOW CURVED ANIMATION
+/* =========================================
+   THICK MULTI-LAYER CURVED ANIMATION
+   Color: #9cffbf
    ========================================= */
 
 .hero-curve {
   position: absolute;
 
-  width: 950px;
-  height: 950px;
+  width: 1050px;
+  height: 1050px;
 
-  right: -500px;
-  bottom: -500px;
+  right: -560px;
+  bottom: -570px;
 
   border-radius: 50%;
 
-  /* Main rainbow ring */
-  background:
-    conic-gradient(
-      from 180deg,
-      #ff0055,
-      #ff7a00,
-      #ffe600,
-      #00ff88,
-      #00d9ff,
-      #7a5cff,
-      #ff00c8,
-      #ff0055
-    );
+  /* Thick outer ring */
+  border: 42px solid rgba(156, 255, 191, 0.035);
 
-  /* Cut the center out */
-  -webkit-mask: radial-gradient(
-    circle,
-    transparent 0 55%,
-    #000 55.5% 57%,
-    transparent 57.5%
-  );
-
-  mask: radial-gradient(
-    circle,
-    transparent 0 55%,
-    #000 55.5% 57%,
-    transparent 57.5%
-  );
-
-  opacity: 0.55;
+  box-shadow:
+    0 0 40px rgba(156, 255, 191, 0.025),
+    inset 0 0 40px rgba(156, 255, 191, 0.015);
 
   pointer-events: none;
   z-index: 1;
 
-  animation: rainbowRotate 10s linear infinite;
-}
+  transform: rotate(-18deg);
 
-
-/* Second ring */
-.hero-curve::before {
-  content: "";
-  position: absolute;
-
-  inset: 70px;
-
-  border-radius: 50%;
-
-  background:
-    conic-gradient(
-      from 180deg,
-      #ff0055,
-      #ff7a00,
-      #ffe600,
-      #00ff88,
-      #00d9ff,
-      #7a5cff,
-      #ff00c8,
-      #ff0055
-    );
-
-  -webkit-mask: radial-gradient(
-    circle,
-    transparent 0 54%,
-    #000 54.5% 56%,
-    transparent 56.5%
-  );
-
-  mask: radial-gradient(
-    circle,
-    transparent 0 54%,
-    #000 54.5% 56%,
-    transparent 56.5%
-  );
-
-  opacity: 0.28;
-
-  animation: rainbowRotateReverse 14s linear infinite;
-}
-
-
-/* Third ring */
-.hero-curve::after {
-  content: "";
-  position: absolute;
-
-  inset: 140px;
-
-  border-radius: 50%;
-
-  background:
-    conic-gradient(
-      from 180deg,
-      #ff0055,
-      #ff7a00,
-      #ffe600,
-      #00ff88,
-      #00d9ff,
-      #7a5cff,
-      #ff00c8,
-      #ff0055
-    );
-
-  -webkit-mask: radial-gradient(
-    circle,
-    transparent 0 53%,
-    #000 53.5% 55%,
-    transparent 55.5%
-  );
-
-  mask: radial-gradient(
-    circle,
-    transparent 0 53%,
-    #000 53.5% 55%,
-    transparent 55.5%
-  );
-
-  opacity: 0.16;
-
-  animation: rainbowRotate 18s linear infinite;
+  animation:
+    curveFloat 10s ease-in-out infinite alternate;
 }
 
 
 /* =========================================
-   EXTRA INNER RINGS
+   LAYER 1
+   ========================================= */
+
+.hero-curve::before {
+  content: "";
+
+  position: absolute;
+
+  width: 930px;
+  height: 930px;
+
+  top: 18px;
+  left: 18px;
+
+  border-radius: 50%;
+
+  border: 34px solid rgba(156, 255, 191, 0.055);
+
+  box-shadow:
+    0 0 35px rgba(156, 255, 191, 0.025);
+
+  animation: curveRotate 18s linear infinite;
+}
+
+
+/* =========================================
+   LAYER 2
+   ========================================= */
+
+.hero-curve::after {
+  content: "";
+
+  position: absolute;
+
+  width: 810px;
+  height: 810px;
+
+  top: 78px;
+  left: 78px;
+
+  border-radius: 50%;
+
+  border: 30px solid rgba(156, 255, 191, 0.085);
+
+  box-shadow:
+    0 0 45px rgba(156, 255, 191, 0.035);
+
+  animation: curveRotateReverse 15s linear infinite;
+}
+
+
+/* =========================================
+   INNER LAYERS
    ========================================= */
 
 .hero-curve span {
@@ -518,100 +466,66 @@
 
   border-radius: 50%;
 
-  background:
-    conic-gradient(
-      from 180deg,
-      #ff0055,
-      #ff7a00,
-      #ffe600,
-      #00ff88,
-      #00d9ff,
-      #7a5cff,
-      #ff00c8,
-      #ff0055
-    );
-
   pointer-events: none;
 }
 
 
-/* Ring 4 */
+/* Layer 3 */
 .hero-curve span:nth-child(1) {
-  inset: 210px;
+  width: 690px;
+  height: 690px;
 
-  -webkit-mask: radial-gradient(
-    circle,
-    transparent 0 52%,
-    #000 52.5% 54%,
-    transparent 54.5%
-  );
+  top: 138px;
+  left: 138px;
 
-  mask: radial-gradient(
-    circle,
-    transparent 0 52%,
-    #000 52.5% 54%,
-    transparent 54.5%
-  );
+  border: 27px solid rgba(156, 255, 191, 0.12);
 
-  opacity: 0.11;
+  box-shadow:
+    0 0 40px rgba(156, 255, 191, 0.04);
 
-  animation: rainbowRotateReverse 22s linear infinite;
+  animation: curveRotate 13s linear infinite;
 }
 
 
-/* Ring 5 */
+/* Layer 4 */
 .hero-curve span:nth-child(2) {
-  inset: 280px;
+  width: 570px;
+  height: 570px;
 
-  -webkit-mask: radial-gradient(
-    circle,
-    transparent 0 51%,
-    #000 51.5% 53%,
-    transparent 53.5%
-  );
+  top: 198px;
+  left: 198px;
 
-  mask: radial-gradient(
-    circle,
-    transparent 0 51%,
-    #000 51.5% 53%,
-    transparent 53.5%
-  );
+  border: 24px solid rgba(156, 255, 191, 0.16);
 
-  opacity: 0.08;
+  box-shadow:
+    0 0 35px rgba(156, 255, 191, 0.045);
 
-  animation: rainbowRotate 26s linear infinite;
+  animation: curveRotateReverse 11s linear infinite;
 }
 
 
-/* Ring 6 */
+/* Layer 5 */
 .hero-curve span:nth-child(3) {
-  inset: 350px;
+  width: 450px;
+  height: 450px;
 
-  -webkit-mask: radial-gradient(
-    circle,
-    transparent 0 50%,
-    #000 50.5% 52%,
-    transparent 52.5%
-  );
+  top: 258px;
+  left: 258px;
 
-  mask: radial-gradient(
-    circle,
-    transparent 0 50%,
-    #000 50.5% 52%,
-    transparent 52.5%
-  );
+  border: 20px solid rgba(156, 255, 191, 0.20);
 
-  opacity: 0.055;
+  box-shadow:
+    0 0 30px rgba(156, 255, 191, 0.05);
 
-  animation: rainbowRotateReverse 30s linear infinite;
+  animation: curveRotate 9s linear infinite;
 }
 
 
 /* =========================================
-   ROTATION
+   ANIMATION
    ========================================= */
 
-@keyframes rainbowRotate {
+@keyframes curveRotate {
   from {
     transform: rotate(0deg);
   }
@@ -622,13 +536,24 @@
 }
 
 
-@keyframes rainbowRotateReverse {
+@keyframes curveRotateReverse {
   from {
     transform: rotate(360deg);
   }
 
   to {
     transform: rotate(0deg);
+  }
+}
+
+
+@keyframes curveFloat {
+  0% {
+    transform: rotate(-18deg) translate(0, 0);
+  }
+
+  100% {
+    transform: rotate(-14deg) translate(-15px, -10px);
   }
 }
 
@@ -638,25 +563,54 @@
    ========================================= */
 
 @media (max-width: 991px) {
+
   .hero-curve {
+    width: 800px;
+    height: 800px;
+
+    right: -430px;
+    bottom: -440px;
+
+    border-width: 34px;
+  }
+
+  .hero-curve::before {
     width: 700px;
     height: 700px;
+  }
 
-    right: -380px;
-    bottom: -380px;
+  .hero-curve::after {
+    width: 600px;
+    height: 600px;
+  }
+
+  .hero-curve span:nth-child(1) {
+    width: 500px;
+    height: 500px;
+  }
+
+  .hero-curve span:nth-child(2) {
+    width: 400px;
+    height: 400px;
+  }
+
+  .hero-curve span:nth-child(3) {
+    width: 300px;
+    height: 300px;
   }
 }
 
 
 @media (max-width: 575px) {
+
   .hero-curve {
-    width: 520px;
-    height: 520px;
+    width: 620px;
+    height: 620px;
 
-    right: -290px;
-    bottom: -290px;
+    right: -340px;
+    bottom: -350px;
 
-    opacity: 0.4;
+    border-width: 28px;
   }
 }
   </style>
